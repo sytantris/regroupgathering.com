@@ -1,0 +1,107 @@
+/*----------------------------------------------------------------- Utilities */
+
+
+/* REM Fonts */
+@mixin relative-font-size ($size) {
+  font-size: $size * 10 + px;
+  font-size: $size + rem;
+}
+
+
+/* Border-box */
+@mixin border-box {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/* All browser settings for background-size property */
+@mixin background-size ($value) {
+  //-moz-background-size: $value;
+  //-o-background-size: $value;
+  //-webkit-background-size: $value; // Android 2.x
+  background-size: $value;
+}
+
+
+/* Change input/textarea placeholder text colour */
+@mixin placeholder ($colour) {
+  &::-webkit-input-placeholder {
+    color: $colour;
+  }
+  &:-moz-input-placeholder {
+    color: $colour;
+  }
+  &::-moz-input-placeholder {
+    color: $colour;
+  }
+  &::-ms-input-placeholder {
+    color: $colour;
+  }
+}
+
+
+
+/*------------------------------------------------------------------- Effects */
+
+/* Transition */
+@mixin transition ($value...) {
+  -webkit-transition: $value;
+  -moz-transition: $value;
+  -o-transition: $value;
+  -ms-transition: $value;
+  transition: $value;
+}
+
+
+/* Transform */
+@mixin transform ($value, $browser-value: $value) {
+  -webkit-transform: $browser-value;
+  -o-transform: $browser-value;
+  -ms-transform: $browser-value;
+  transform: $value;
+}
+
+
+/* Opacity */
+@mixin opacity ($opacity, $filter: alpha(opacity=$filter)) {
+  opacity: $opacity;
+  filter: $filter;
+}
+
+
+/* Mirror direections */
+/*
+@mixin mirror ($direction) {
+  @if $direction == top { return 'bottom' };
+  @if $direction == bottom { return top };
+  @if $direction == left { return right };
+  @if $direction == right { return left };
+  @else return 'auto';
+}
+*/
+
+
+/* Linear Gradient */
+/*
+@mixin linear-gradient ($direction, $stops...) {
+  $mirrored-direction: 'to ' + mirror($direction);
+  background-image: -webkit-linear-gradient($direction, $stops);
+  background-image: -moz-linear-gradient($direction, $stops);
+  background-image: -ms-linear-gradient($direction, $stops);
+  background-image: -o-linear-gradient($direction, $stops);
+  background-image: linear-gradient($mirrored-direction, $stops);
+}
+*/
+
+
+
+/*-------------------------------------------------------------------- Social */
+
+/* Social icons (uses Rails image-url helper) */
+@mixin social ($type) {
+  background-image: image-url($type + '.png');
+  &:hover {
+    background-image: image-url($type + '.png');
+  }
+}

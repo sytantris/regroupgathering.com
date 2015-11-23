@@ -1,0 +1,37 @@
+/* ion8 dev library
+ * _media.scss
+ * a library of easy media queries and common viewport widths
+ * import using at too of file: 'import media';
+ * by Sy Dyat sy@ion8.net 2014-02-18
+ */
+
+
+
+/***** VARIABLES *****/
+$media-phone-portrait: 320px;
+$media-phone-landscape: 480px;
+$media-tablet-portrait: 768px;
+$media-tablet-landscape: 1024px;
+$media-screen-large: 1200px;
+
+
+
+/***** MIXINS *****/
+
+/* respond to all media up to and including $max width */
+@mixin respond-to-max($max) {
+  @media screen and (max-width: $max - 1px) { @content; }
+}
+
+
+/* respond to media over $min width */
+@mixin respond-to-min($min) {
+  @media screen and (min-width: $min) { @content; }
+}
+
+
+/* respond to media between ($min + 1px) and $max width */
+@mixin respond-to-interval($min, $max) {
+  @media screen and (min-width: $min)
+                and (max-width: $max - 1px) { @content; }
+}

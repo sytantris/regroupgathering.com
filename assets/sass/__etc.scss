@@ -1,0 +1,29 @@
+      a {
+        display: block;
+        width: 70%;
+        margin: 20px auto 25px;
+        text-align: center;
+        padding: 10px 10px 15px;
+
+        $stops: $ColourMagenta, $ColourRed, $ColourOrange, $ColourYellow;
+        background: {
+          image: -webkit-linear-gradient(top, $stops);
+          image: -moz-linear-gradient(top, $stops);
+          image: -ms-linear-gradient(top, $stops);
+          image: -o-linear-gradient(top, $stops);
+          image: linear-gradient(to bottom, $stops);
+        }
+        border-radius: 5px;
+        color: darken($ColourMagenta, 20%);
+        text-shadow: 1px 1px 2px $ColourIndigo;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        &:hover {
+          padding: 9px 8px 14px;
+          border: 1px solid $ColourBlue;
+        }
+        &:active {
+          padding: 10px 10px 15px;
+          box-shadow: inset 3px 3px 3px $ColourIndigo;
+          border: none;
+        }
+      }
